@@ -1,0 +1,61 @@
+UPDATE 時間副詞與歷史事件
+          SET 類型=4
+WHERE 類型=5
+
+update 時間副詞與歷史事件 set 因果順序='-200' where 名稱 ='被控'   
+update 時間副詞與歷史事件 set 類型=6,因果順序='-100' where 名稱='宣稱' 
+update 時間副詞與歷史事件 set 類型=5 where 名稱 in ('凌晨',
+'清晨',
+'早上',
+'接近中午',
+'中午',
+'午後',
+'下午',
+'黃昏',
+'傍晚',
+'晚上',
+'深夜',
+'上午',
+'午時')
+
+ALTER TABLE 時間副詞與歷史事件
+ADD CONSTRAINT MyUniqueConstraint UNIQUE(名稱)
+
+ALTER TABLE 時間副詞與歷史事件
+ADD 結束時間 datetime
+
+insert into 時間副詞與歷史事件　
+values ('雙十',2,'99981010',NULL,NULL,NULL,0)
+
+
+
+insert into 時間副詞與歷史事件(名稱,類型,絕對時間,因果順序)　
+values ('1月初',2,'99980101',0)
+insert into 時間副詞與歷史事件(名稱,類型,絕對時間,因果順序)　
+values ('1月中',2,'99980115',0)
+insert into 時間副詞與歷史事件(名稱,類型,絕對時間,因果順序)　
+values ('1月底',2,'99980131',0)
+
+
+insert into 時間副詞與歷史事件(名稱,類型,絕對時間,相對時間,備註)　
+values ('迄今',3,'99991231','0',0)
+
+insert into 時間副詞與歷史事件(名稱,類型,絕對時間,相對時間,因果順序)
+values ('星期天',4,'99991231','7w0',0)
+
+insert into 時間副詞與歷史事件(名稱,類型,絕對時間,相對時間,因果順序)
+values ('',5,'99991231','1w0')
+
+insert into 時間副詞與歷史事件(名稱,類型,絕對時間,備註)
+values('宣布',6,'99991231',-100)
+
+insert into 時間副詞與歷史事件(名稱,類型,絕對時間,相對時間,備註)
+values ('來',7,'99991231','0',0)
+
+DELETE FROM 時間副詞與歷史事件 where 名稱=('來')
+
+
+select * from 時間副詞與歷史事件 where 類型=5
+select * from 時間副詞與歷史事件 ORDER BY LEN(名稱) DESC
+select * from 時間副詞與歷史事件 ORDER BY 類型
+select * from 時間副詞與歷史事件 where 名稱 in ('二二八事件','二戰','聖誕節','明日','星期日','中午','表示','以前','剛開始') ORDER BY 類型
